@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { Button } from "./Button";
+import Modal from './pages/Modal';
+import Signup from "./pages/Signup";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -24,6 +26,17 @@ function Navbar() {
 
   window.addEventListener("resize", showButton);
 
+  
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -42,33 +55,38 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/services"
+                to="/ManageRentals"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Services
+                Manage Rentals
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/products"
+                to="/property"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Products
+                Add a Property
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/sign-up"
+                to="/signup"
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Sign Up/Sign In
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          <button onClick={openModal}>Sign Up</button>
+          {showModal && (
+          <Modal onClose={closeModal}>
+            <Signup onClose={closeModal} />
+          </Modal>
+          )}
         </div>
       </nav>
     </>
