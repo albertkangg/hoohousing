@@ -1,11 +1,12 @@
 import "../../App.css";
-import HeroSection from "../HeroSection";
+import Navbar from "../Navbar";
+import Hero from "../Hero";
 import React from "react";
 
 function Home() {
   return (
     <>
-      <HeroSection />
+      <Hero />
     </>
   );
 }
