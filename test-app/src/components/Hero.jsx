@@ -16,7 +16,7 @@ const Hero = () => {
             <img
                 src={hero}
                 alt="hero"
-                className="absolute w-full h-[70%] object-cover z-0 inset-0 brightness-50"
+                className="absolute w-full h-screen object-cover z-0 inset-0 brightness-50"
             />
             <h1 className="absolute my-[9%] flex justify-center font-bold text-white text-[72px] w-screen">Find Your New Home</h1>
             <p className="absolute flex my-[15%] justify-center font-bold text-white text-[32px] w-screen">Designed specifically for UVA students</p>
