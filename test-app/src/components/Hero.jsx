@@ -16,9 +16,11 @@ const Hero = () => {
             <img
                 src={hero}
                 alt="hero"
-                className="absolute w-full h-[70%] object-cover z-0 inset-0 opacity-75"
+                className="absolute w-full h-[70%] object-cover z-0 inset-0 brightness-50"
             />
-            <div className="relative flex mt-[15%] items-center p-2 sm:p-4 md:p-6 lg:p-8 rounded-xl shadow-lg max-w-4xl mx-auto h-[5vh]">
+            <h1 className="absolute my-[9%] flex justify-center font-bold text-white text-[72px] w-screen">Find Your New Home</h1>
+            <p className="absolute flex my-[15%] justify-center font-bold text-white text-[32px] w-screen">Designed specifically for UVA students</p>
+            <div className="relative flex mt-[20%] items-center p-2 sm:p-4 md:p-6 lg:p-8 rounded-xl max-w-4xl mx-auto h-[5vh]">
                 <form onSubmit={handleSearch} className="relative flex w-[700px] h-[50px]">
                     <input
                         type="text"
