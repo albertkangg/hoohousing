@@ -25,13 +25,13 @@ const Hero = () => {
                     <input
                         type="text"
                         placeholder="Search for apartments, neighborhoods..."
-                        className="flex-grow p-3 text-lg sm:text-xl md:text-2xl border-2 border-gray-300 focus:border-blue-500 rounded-l-xl focus:outline-none transition-colors w-[700px] h-[50px]"
+                        className="flex-grow p-3 text-lg sm:text-xl md:text-2xl border-2 border-gray-300 focus:border-[#EB9657] rounded-l-xl focus:outline-none transition-colors w-[700px] h-[50px]"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <button
                         type="submit"
-                        className="bg-[#B46F29] text-white font-bold text-[16px] px-8 rounded-r-lg hover:bg-blue-600 focus:outline-none"
+                        className="bg-[#EB9657] text-white font-bold text-[16px] px-8 rounded-r-lg hover:bg-[#B46F29] focus:outline-none"
                     >
                         Search
                     </button>
