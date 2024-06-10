@@ -1,0 +1,78 @@
+/* src/TwoByTwo.css */
+.twoByTwo {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+  
+.twoByTwo-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+  
+.twoByTwo-header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+  
+.twoByTwo-header p {
+    margin: 10px 0;
+    color: #6c757d;
+}
+  
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+  
+.card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;  
+    padding: 0px;
+    width: 100%;
+    max-width: 800px;  /* Restrict the maximum width */
+    max-height: 600px; /* Restrict the maximum height */
+    min-width: 200px;  /* Ensure a minimum width */
+    min-height: 300px; /* Ensure a minimum height */
+    margin: 0 auto;    /* Center the cards horizontally */
+    overflow: hidden;
+}
+  
+.card img {
+    width: 100%;
+    border-bottom: 1px solid #dee2e6;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+  
+.card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+  
+.card p {
+    color: #6c757d;
+}
+  
+.card a {
+    color: #007bff;
+    text-decoration: none;
+}
+  
+.card a:hover {
+    text-decoration: underline;
+}
+  
+@media (min-width: 768px) {
+    .content {
+      grid-template-columns: 1fr 1fr;
+    }
+}
+  
