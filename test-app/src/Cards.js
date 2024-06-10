@@ -12,31 +12,26 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/image1.webp'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
+              text='NEW DORMS'
               label='CAUTHEN'
               path='/houses'
             />
             <CardItem
               src='images/image2.png'
-              text='Travel through the Islands of Bali in a Private Cruise'
+              text='OLD'
               label='BONNY CASTLE'
               path='/houses'
             />
-          </ul>
-          <ul className='cards__items'>
             <CardItem
               src='images/image3.avif'
+              text='NEWER DORMER'
               label='KELLOG'
               path='/houses'
             />
             <CardItem
               src='images/image4.jpg'
+              text='OLDER DORMER'
               label='HANCOCK'
-              path='/houses'
-            />
-            <CardItem
-              src='images/image5.jpg'
-              label='GOOCH'
               path='/houses'
             />
           </ul>

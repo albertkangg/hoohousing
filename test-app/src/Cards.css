@@ -1,5 +1,5 @@
 .cards {
-    padding: 4rem;
+    padding: 10px;
     background: #fff;
   }
   
@@ -10,11 +10,12 @@
   .cards__container {
     display: flex;
     flex-flow: column;
-    align-items: center;
-    max-width: 1120px;
-    width: 90%;
+    align-items: space-around;
+    max-width: 100%;
+    width: 95%;
     margin: 0 auto;
-  }
+  } 
+
   
   .cards__wrapper {
     position: relative;
@@ -22,15 +23,19 @@
   }
   
   .cards__items {
+    display: flex; /* Ensure items are displayed in a row */
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    justify-content: space-around; /* Distribute items evenly */
     margin-bottom: 24px;
   }
   
   .cards__item {
     display: flex;
-    flex: 1;
-    margin: 0 1rem;
+    flex: 1 1 300px; /* Allow cards to grow and shrink with a minimum width */
+    max-width: 400px; /* Set a maximum width for the cards */
+    margin: 20px; /* Increase margin for better spacing */
     border-radius: 10px;
-  }
+}
   
   .cards__item__link {
     display: flex;
@@ -47,7 +52,7 @@
   .cards__item__pic-wrap {
     position: relative;
     width: 100%;
-    padding-top: 67%;
+    padding-top: 100%;
     overflow: hidden;
   }
   
@@ -90,7 +95,13 @@
   }
   
   .cards__item__info {
-    padding: 20px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 20px;
+    text-align: center; /* Center-align the text */
+    height: 100%; /* Ensure it takes full height of the card */
   }
   
   .cards__item__text {
