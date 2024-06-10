@@ -1,7 +1,9 @@
+// Signup.js
 import React, { useState } from 'react';
-import "../../App.css";
+import { GoogleLogin } from '@react-oauth/google';
+import "../Auth.css"; // Ensure consistent styling for both Signup and Signin
 
-function Signup({ onClose }) {
+function Signup({ switchToSignin, onClose }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,34 +18,50 @@ function Signup({ onClose }) {
     }
   };
 
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+
+  const errorMessage = (error) => {
+    console.log(error);
+  };
+
   return (
-    <div className="signup-container">
-      <h2>Sign Up</h2>
+    <div className="auth-container">
+      <h2>Create an Account</h2>
       <form onSubmit={handleSubmit}>
+        <h3>Full Name (First, Last)</h3>
         <input
           type="text"
-          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <h3>Email Address</h3>
         <input
           type="email"
-          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <h3>Password</h3>
         <input
           type="password"
-          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit"><h5>Sign Up</h5></button>
       </form>
+      <button onClick={switchToSignin}>
+        <h4>Already have an account? Sign In</h4>
+      </button>
       {message && <p>{message}</p>}
+      <br />
+      Or:
+      <br />
+      <br />
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+      <button onClick={onClose}>Close</button>
     </div>
   );
 }
 
 export default Signup;
-
