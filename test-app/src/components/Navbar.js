@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { Button } from "./Button";
+import * as FaIcons from "react-icons/fa";
 import Hamburger from "hamburger-react";
 import Modal from "./pages/Modal";
 import Signup from "./pages/Signup";
+import { SidebarData } from "./SidebarData";
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const showSidebar = () => setSidebar(!sidebar);
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -47,8 +51,8 @@ function Navbar() {
               size={20}
               color="orange"
               duration={0.1}
-              toggle={handleClick}
-              toggled={click}
+              toggle={showSidebar}
+              toggled={sidebar}
             />
           </div>
           <div className="logo-container">
@@ -92,6 +96,22 @@ function Navbar() {
             </Modal>
           )}
         </div>
+      </nav>
+      <nav className={sidebar ? "side-menu active" : "side-menu"}>
+        <ul className="nav-menu-items">
+          <li className="navbar-toggle">
+            <Link to="#" className="menu-bars"></Link>
+          </li>
+          {SidebarData.map((item, index) => {
+            return (
+              <li key={index} className={item.cName}>
+                <Link to={item.path}>
+                  <span>{item.title}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
     </>
   );
