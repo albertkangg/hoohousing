@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Cards from "./Cards";
 import Home from "./components/pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -13,7 +11,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
       </Routes>
-      <Cards />
     </Router>
   );
 }
