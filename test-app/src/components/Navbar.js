@@ -1,12 +1,16 @@
+// Navbar.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { Button } from "./Button";
 import * as FaIcons from "react-icons/fa";
 import Hamburger from "hamburger-react";
-import Modal from "./pages/Modal";
+import Modal from "react-modal";
 import Signup from "./pages/Signup";
 import { SidebarData } from "./SidebarData";
+import Signin from "./pages/Signin";
+
+Modal.setAppElement('#root'); // Ensure accessibility by setting the root element
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -31,14 +35,22 @@ function Navbar() {
 
   window.addEventListener("resize", showButton);
 
-  const [showModal, setShowModal] = useState(false);
+  const [loginOpened, setLoginOpened] = useState(false);
+  const [signupOpened, setSignupOpened] = useState(false);
 
-  const openModal = () => {
-    setShowModal(true);
+  const openModal = modalType => {
+    if (modalType === "login") {
+      setLoginOpened(true);
+      setSignupOpened(false);
+    } else if (modalType === "signup") {
+      setLoginOpened(false);
+      setSignupOpened(true);
+    }
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    setLoginOpened(false);
+    setSignupOpened(false);
   };
 
   return (
@@ -85,16 +97,17 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-links" onClick={openModal}>
-                Sign Up/Sign In
-              </Link>
+              <button className="nav-links" onClick={() => openModal("login")}>Login</button>
+              /
+              <button className="nav-links" onClick={() => openModal("signup")}>Signup</button>
             </li>
           </ul>
-          {showModal && (
-            <Modal onClose={closeModal}>
-              <Signup onClose={closeModal} />
-            </Modal>
-          )}
+          <Modal isOpen={loginOpened} onRequestClose={closeModal}>
+            <Signin switchToSignup={() => openModal("signup")} onClose={closeModal} />
+          </Modal>
+          <Modal isOpen={signupOpened} onRequestClose={closeModal}>
+            <Signup switchToSignin={() => openModal("login")} onClose={closeModal} />
+          </Modal>
         </div>
       </nav>
       <nav className={sidebar ? "side-menu active" : "side-menu"}>
