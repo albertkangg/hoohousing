@@ -10,8 +10,27 @@ import Signup from "./pages/Signup";
 import { SidebarData } from "./SidebarData";
 import Signin from "./pages/Signin";
 
-Modal.setAppElement('#root'); // Ensure accessibility by setting the root element
+Modal.setAppElement('#root');
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '90%',
+    maxWidth: '500px',
+    padding: '0',
+    border: 'none',
+    borderRadius: '8px',
+    boxShadow: '0 5px 15px rgba(0,0,0,0.3)'
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)'
+  }
+};
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -97,15 +116,15 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <button className="nav-links" onClick={() => openModal("login")}>Login</button>
-              /
-              <button className="nav-links" onClick={() => openModal("signup")}>Signup</button>
+              <button className="sign-up" onClick={() => openModal("login")}>Login</button>
+              <div className="slash">/</div>
+              <button className="sign-in" onClick={() => openModal("signup")}>Signup</button>
             </li>
           </ul>
-          <Modal isOpen={loginOpened} onRequestClose={closeModal}>
+          <Modal isOpen={loginOpened} onRequestClose={closeModal} style={customStyles}>
             <Signin switchToSignup={() => openModal("signup")} onClose={closeModal} />
           </Modal>
-          <Modal isOpen={signupOpened} onRequestClose={closeModal}>
+          <Modal isOpen={signupOpened} onRequestClose={closeModal} style={customStyles}>
             <Signup switchToSignin={() => openModal("login")} onClose={closeModal} />
           </Modal>
         </div>

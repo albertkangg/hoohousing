@@ -72,10 +72,44 @@ left: 43%;
   font-size: 1.5rex;
 }
 
+.sign-up {
+  color: #000000;
+  display:inline-flex;
+  align-items: center;
+  position:relative;
+  text-decoration: none;
+  padding: 0.25rem;
+  height: 100%;
+  font-size: 1.5rex;
+}
+.sign-up:hover {
+  color: #EB9657;
+}
+.slash {
+  color: #000000;
+  display:inline;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.25rem ;
+  height: 100%;
+  font-size: 1.5rex;
+}
+.sign-in {
+  color: #000000;
+  display:inline-flex;
+  align-items: center;
+  position:relative;
+  text-decoration: none;
+  padding: 0.25rem;
+  height: 100%;
+  font-size: 1.5rex;
+}
+.sign-in:hover {
+  color: #EB9657;
+}
+
 .nav-links:hover {
   color: #EB9657;
-  border-bottom: 4px solid #EB9657;
-  transition: all 0.2s ease-out;
 }
 
 .fa-bars {
@@ -250,11 +284,12 @@ span {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #585aef;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .close {

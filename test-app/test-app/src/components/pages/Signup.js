@@ -29,6 +29,9 @@ function Signup({ switchToSignin, onClose }) {
   return (
     <div className="auth-container">
       <h2>Create an Account</h2>
+      <button onClick={switchToSignin}>
+        <h4>Or, sign into your account</h4>
+      </button>
       <form onSubmit={handleSubmit}>
         <h3>Full Name (First, Last)</h3>
         <input
@@ -50,9 +53,7 @@ function Signup({ switchToSignin, onClose }) {
         />
         <button type="submit"><h5>Sign Up</h5></button>
       </form>
-      <button onClick={switchToSignin}>
-        <h4>Already have an account? Sign In</h4>
-      </button>
+      
       {message && <p>{message}</p>}
       <br />
       Or:

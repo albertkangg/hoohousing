@@ -14,7 +14,7 @@ function Modal({ children, onClose }) {
     setShow(false);
     setTimeout(() => {
       onClose();
-    }, 300); // Match the CSS transition duration
+    }, 300); 
   };
 
   return (

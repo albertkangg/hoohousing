@@ -1,5 +1,6 @@
-// Signin.js
+// Signup.js
 import React, { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
 import "../Auth.css"; // Ensure consistent styling for both Signup and Signin
 
 function Signin({ switchToSignup, onClose }) {
@@ -11,15 +12,26 @@ function Signin({ switchToSignup, onClose }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (username && email && password) {
-      setMessage('Signin successful!');
+      setMessage('Signup successful!');
     } else {
       setMessage('Please fill out all fields.');
     }
   };
 
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+
+  const errorMessage = (error) => {
+    console.log(error);
+  };
+
   return (
     <div className="auth-container">
-      <h2>Sign-in to your account</h2>
+      <h2>Sign into your account</h2>
+      <button onClick={switchToSignup}>
+        <h4>Or, create an account here!</h4>
+      </button>
       <form onSubmit={handleSubmit}>
         <h3>Full Name (First, Last)</h3>
         <input
@@ -39,12 +51,14 @@ function Signin({ switchToSignup, onClose }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit"><h5>Sign In</h5></button>
+        <button type="submit"><h5>Sign Up</h5></button>
       </form>
       {message && <p>{message}</p>}
-      <button onClick={switchToSignup}>
-        <h4>Don't have an account? Sign Up</h4>
-      </button>
+      <br />
+      Or:
+      <br />
+      <br />
+      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
       <button onClick={onClose}>Close</button>
     </div>
   );
