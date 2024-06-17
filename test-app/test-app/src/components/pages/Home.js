@@ -4,6 +4,7 @@ import Hero from "../Hero";
 import React from "react";
 import Cards from "../Cards";
 import TwoByTwo from "../TwoByTwo"; //?? what does this error mean
+import Footer from "../Footer";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Hero />
       <Cards />
       <TwoByTwo />
+      <Footer />
     </>
   );
 }
