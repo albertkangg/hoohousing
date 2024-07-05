@@ -10,7 +10,7 @@ import Signup from "./pages/Signup";
 import { SidebarData } from "./SidebarData";
 import Signin from "./pages/Signin";
 
-Modal.setAppElement('#root'); // Ensure accessibility by setting the root element
+Modal.setAppElement("#root"); // Ensure accessibility by setting the root element
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -19,6 +19,7 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const closeSidebar = () => setSidebar(false);
   const showSidebar = () => setSidebar(!sidebar);
 
   const showButton = () => {
@@ -38,7 +39,7 @@ function Navbar() {
   const [loginOpened, setLoginOpened] = useState(false);
   const [signupOpened, setSignupOpened] = useState(false);
 
-  const openModal = modalType => {
+  const openModal = (modalType) => {
     if (modalType === "login") {
       setLoginOpened(true);
       setSignupOpened(false);
@@ -68,50 +69,52 @@ function Navbar() {
             />
           </div>
           <div className="logo-container">
-            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            <Link to="/" className="navbar-logo" onClick={closeSidebar}>
               HooHousing
             </Link>
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/" className="nav-links" onClick={closeSidebar}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/ManageRentals"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+              <Link to="/rentals" className="nav-links" onClick={closeSidebar}>
                 Manage Rentals
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/property"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+              <Link to="/property" className="nav-links" onClick={closeSidebar}>
                 Add a Property
               </Link>
             </li>
             <li className="nav-item">
-              <button className="nav-links" onClick={() => openModal("login")}>Login</button>
+              <button className="nav-links" onClick={() => openModal("login")}>
+                Login
+              </button>
               /
-              <button className="nav-links" onClick={() => openModal("signup")}>Signup</button>
+              <button className="nav-links" onClick={() => openModal("signup")}>
+                Signup
+              </button>
             </li>
           </ul>
           <Modal isOpen={loginOpened} onRequestClose={closeModal}>
-            <Signin switchToSignup={() => openModal("signup")} onClose={closeModal} />
+            <Signin
+              switchToSignup={() => openModal("signup")}
+              onClose={closeModal}
+            />
           </Modal>
           <Modal isOpen={signupOpened} onRequestClose={closeModal}>
-            <Signup switchToSignin={() => openModal("login")} onClose={closeModal} />
+            <Signup
+              switchToSignin={() => openModal("login")}
+              onClose={closeModal}
+            />
           </Modal>
         </div>
       </nav>
       <nav className={sidebar ? "side-menu active" : "side-menu"}>
-        <ul className="nav-menu-items">
+        <ul className="nav-menu-items" onClick={closeSidebar}>
           <li className="navbar-toggle">
             <Link to="#" className="menu-bars"></Link>
           </li>
@@ -119,7 +122,7 @@ function Navbar() {
             return (
               <li key={index} className={item.cName}>
                 <Link to={item.path}>
-                  <span>{item.title}</span>
+                  <span className="sidebar-text">{item.title}</span>
                 </Link>
               </li>
             );

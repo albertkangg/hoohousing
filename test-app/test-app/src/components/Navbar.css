@@ -130,7 +130,8 @@ left: 43%;
 }
 
 .nav-text a:hover {
-  background-color: #ffc294;
+  /* background-color: #ffc294; */
+  color: #EB9657;
 }
 
 .nav-menu-items {
